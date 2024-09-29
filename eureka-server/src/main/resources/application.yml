@@ -1,0 +1,27 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discover-server
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+    info:
+      enabled: true
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+      jmx:
+        exposure:
+          include: "health,info"
