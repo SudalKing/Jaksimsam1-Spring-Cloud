@@ -1,0 +1,5 @@
+// version default 1.0.0
+// ./gradlew build --paraller -Pversion=1.0.0
+ext {
+    projectVersion = project.hasProperty('version') ? project.property('version') : '1.0.0'
+}
