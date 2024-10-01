@@ -3,9 +3,14 @@ server:
 
 spring:
   application:
-    name: discover-server
+    name: eureka-server
 
 eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
   client:
     register-with-eureka: false
     fetch-registry: false
@@ -22,6 +27,6 @@ management:
       exposure:
         include: "*"
         exclude: "env,beans"
-      jmx:
-        exposure:
-          include: "health,info"
+#      jmx:
+#        exposure:
+#          include: "health,info"

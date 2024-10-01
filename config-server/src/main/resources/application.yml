@@ -1,0 +1,29 @@
+server:
+  port: 8888
+
+encrypt:
+  key:
+
+spring:
+  rabbitmq: # 서버 설정 변경 전파를 위한 메시지 브로커
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          uri: https://github.com/SudalKing/Jaksimsam1-Spring-Cloud.git
+          timeout: 180
+#        native: 모듈안에서 관리할 때 spring.profiles.active: native 필요
+#          search-locations: classPath:/config
+#          프로퍼티명-프로파일 / mongo-default.yml, mongo-dev.yml, ...
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["refresh", "beans", "env"]
