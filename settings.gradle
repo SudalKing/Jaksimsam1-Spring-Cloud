@@ -1,3 +1,4 @@
 rootProject.name = 'spring-cloud-server'
 include ':config-server'
 include ':eureka-server'
+include ':api-gateway-server'

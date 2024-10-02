@@ -1,0 +1,40 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  main:
+    web-application-type: reactive
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  profiles:
+    active: local
+  application:
+    name: api-gateway-server
+  cloud:
+    gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: "Jaksimsam1 Global Filter"
+            preLogger: true
+            postLogger: true
+      routes:
+        # 세부 기능
+        - id: user-service
+          uri: http://localhost:8080
+          predicates:
+            - Path=/user/actuator/**
+            - Method=GET, POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user(?<segment>/?.*), $\{segment}
