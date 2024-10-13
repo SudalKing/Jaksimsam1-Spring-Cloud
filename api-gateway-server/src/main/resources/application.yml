@@ -29,12 +29,12 @@ spring:
             preLogger: true
             postLogger: true
       routes:
-        # 세부 기능
+        # User Domain
         - id: user-service
-          uri: http://localhost:8080
+          uri: http://localhost:8081/
           predicates:
-            - Path=/user/actuator/**
+            - Path=/user/api/**
             - Method=GET, POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/user(?<segment>/?.*), $\{segment}
+#          filters:
+#            - RemoveRequestHeader=Cookie
+#            - RewritePath=/user(?<segment>/?.*), $\{segment}
