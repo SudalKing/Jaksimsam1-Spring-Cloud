@@ -25,7 +25,7 @@ spring:
       default-filters:
         - name: GlobalFilter
           args:
-            baseMessage: "Jaksimsam1 Global Filter"
+            baseMessage: "SynergySpace Global Filter"
             preLogger: true
             postLogger: true
       routes:
