@@ -24,9 +24,12 @@ ext {
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-config-server'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    /* Spring Cloud amqp */
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
     implementation 'org.springframework.cloud:spring-cloud-bus'
+
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap', version: '4.0.0'
     implementation 'org.springframework.cloud:spring-cloud-starter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

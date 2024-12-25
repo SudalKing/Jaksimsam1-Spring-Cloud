@@ -25,7 +25,7 @@ spring:
       default-filters:
         - name: GlobalFilter
           args:
-            baseMessage: "SynergySpace Global Filter"
+            baseMessage: SynergySpace Global Filter
             preLogger: true
             postLogger: true
       routes:
@@ -35,6 +35,15 @@ spring:
           predicates:
             - Path=/user/api/**
             - Method=GET, POST
-#          filters:
-#            - RemoveRequestHeader=Cookie
-#            - RewritePath=/user(?<segment>/?.*), $\{segment}
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user(?<segment>/?.*), $\{segment}
+        # 로그인
+        - id: user-service
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/user/login
+            - Method=POST
+          filters:
+            - AddRequestHeader=user-login, user-login-header
+            - AddResponseHeader=
