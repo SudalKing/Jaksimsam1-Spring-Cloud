@@ -1,4 +1,4 @@
-package com.jaksimsam1.apigatewayserver.model;
+package com.jaksimsam1.apigatewayserver.infra.logging;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
